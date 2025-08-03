@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Friendship Day</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Pacifico", cursive;
+        background: linear-gradient(
+          135deg,
+          #ff9a9e 0%,
+          #fad0c4 99%,
+          #fad0c4 100%
+        );
+        overflow-x: hidden;
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      h1 {
+        font-size: 3em;
+        color: #fff;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        animation: glow 3s ease-in-out infinite alternate;
+      }
+
+      p {
+        font-size: 1.5em;
+        color: #fff;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        max-width: 600px;
+        margin: 0 auto 30px;
+        animation: bounce 2s ease infinite;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px #ff9a9e, 0 0 20px #ff758c, 0 0 30px #ff758c;
+        }
+        to {
+          text-shadow: 0 0 20px #ff6a88, 0 0 30px #ff6a88, 0 0 40px #ff6a88;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .hearts {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .heart {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background: red;
+        transform: rotate(45deg);
+        animation: float 6s infinite;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart::after {
+        left: -10px;
+        top: 0;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .btn {
+        padding: 15px 30px;
+        font-size: 1em;
+        border: none;
+        background: #fff;
+        color: #f06292;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-family: "Pacifico", cursive;
+      }
+
+      .btn:hover {
+        background: #ffe6ec;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+        animation: fadeIn 3s ease-out forwards;
+      }
+
+      .gallery img {
+        width: 250px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <audio autoplay loop>
+      <source src="song.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="hearts"></div>
+    <h1>Happy Friendship Day!</h1>
+    <p>
+      Hey Guys! Just wanted to say how much I appreciate our friendship. Thanks
+      for always being there. 💖🧿🧿🧿🧿
+    </p>
+    <button class="btn" onclick="surpriseMessage()">
+      Click for a Surprise!
+    </button>
+
+    <div class="gallery">
+      <img src="1.jpg" alt="Friend 1" />
+      <img src="3.jpg" alt="Friend 2" />
+      <img src="4.jpg" alt="Friend 3" />
+      <img src="2.jpg" alt="Memories" />
+    </div>
+
+    <script>
+      function createHearts() {
+        const container = document.querySelector(".hearts");
+        for (let i = 0; i < 30; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.animationDelay = Math.random() * 5 + "s";
+          heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+          container.appendChild(heart);
+        }
+      }
+
+      function surpriseMessage() {
+        const popup = document.createElement("div");
+        popup.innerHTML =
+          '<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; color: #f06292; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.2); font-size: 1.5em; z-index: 9999; text-align: center;">i rally love you ❤️‍🔥<br>tuze kiase bolu samajh me hi nahi ata 😢<br>you are the best for me 🫶<br>thanks for choosing me 🙏<br>please stay forever with me 🥺<br>we will be not strenger again please 💔🤝<br><br><button onclick="this.parentElement.remove()" style="margin-top: 15px; padding: 10px 20px; border: none; border-radius: 10px; background-color: #f06292; color: white; font-family: Pacifico, cursive; cursor: pointer;">I am Always with you</button></div>';
+        document.body.appendChild(popup);
+      }
+
+      createHearts();
+    </script>
+  </body>
+</html>
