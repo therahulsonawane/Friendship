@@ -151,7 +151,7 @@
     </style>
   </head>
   <body>
-    <audio autoplay loop muted onplay="this.muted = false;">
+    <audio id="bg-music" loop>
       <source src="song.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
@@ -159,8 +159,8 @@
     <div class="hearts"></div>
     <h1>Happy Friendship Day!</h1>
     <p>
-      Hey Guys! Just wanted to say how much I appreciate our friendship. Thanks
-      for always being there. 💖🧿🧿🧿🧿
+      Hey bestie! Just wanted to say how much I appreciate our friendship.
+      Thanks for always being there. 💖
     </p>
     <button class="btn" onclick="surpriseMessage()">
       Click for a Surprise!
@@ -187,9 +187,10 @@
       }
 
       function surpriseMessage() {
+        document.getElementById("bg-music").play();
         const popup = document.createElement("div");
         popup.innerHTML =
-          '<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; color: #f06292; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.2); font-size: 1.5em; z-index: 9999; text-align: center;">i rally love you ❤️‍🔥<br>tuze kiase bolu samajh me hi nahi ata 😢<br>you are the best for me 🫶<br>thanks for choosing me 🙏<br>please stay forever with me 🥺<br>we will be not strenger again please 💔🤝<br><br><button onclick="this.parentElement.remove()" style="margin-top: 15px; padding: 10px 20px; border: none; border-radius: 10px; background-color: #f06292; color: white; font-family: Pacifico, cursive; cursor: pointer;">I am Always with you</button></div>';
+          '<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; color: #f06292; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.2); font-size: 1.2em; z-index: 9999; text-align: center; line-height: 1.6; max-width: 90%;">i rally love you ❤️‍🔥<br>tuze kiase bolu samajh me hi nahi ata 😢<br>you are the best for me 🫶<br>thanks for choosing me 🙏<br>please stay forever with me 🥺<br>we will be not strenger again please 💔🤝<br><br><button onclick="this.parentElement.remove()" style="margin-top: 15px; padding: 10px 20px; border: none; border-radius: 10px; background-color: #f06292; color: white; font-family: Pacifico, cursive; cursor: pointer;">Aww, Thank You!</button></div>';
         document.body.appendChild(popup);
       }
 
